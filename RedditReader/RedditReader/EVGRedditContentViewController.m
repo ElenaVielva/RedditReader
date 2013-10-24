@@ -10,8 +10,6 @@
 
 @interface EVGRedditContentViewController ()
 
-
-
 @end
 
 @implementation EVGRedditContentViewController

@@ -15,5 +15,6 @@
 @synthesize date;
 @synthesize url;
 @synthesize thumb;
+@synthesize name;
 
 @end

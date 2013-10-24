@@ -12,6 +12,7 @@
     
     NSMutableDictionary *cachedThumbnails;
     BOOL isLoading;
+    BOOL loadingTop;
     UIImage *loadingImage;
 }
 

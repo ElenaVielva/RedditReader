@@ -62,7 +62,7 @@
 
     // Return the number of rows in the section.
     int numberOfReddits = [[EVGRedditsResultInfo sharedInfo].reddits count];
-    if (isLoading) {
+    if (isLoading || loadingTop) {
         return numberOfReddits+1; // the last one is the loading animation
     }
     return numberOfReddits;
@@ -79,7 +79,8 @@
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:103];
     UIImageView *thumbImage = (UIImageView *) [cell viewWithTag:100];
     
-    if (isLoading && (indexPath.row==[[EVGRedditsResultInfo sharedInfo].reddits count])) {
+    if ( (isLoading && (indexPath.row==[[EVGRedditsResultInfo sharedInfo].reddits count]) ) ||
+        (loadingTop && indexPath.row == 0) ) {
         loadingIcon.image = loadingImage;
         
         [self startSpin:loadingIcon];
@@ -93,7 +94,13 @@
     loadingIcon.image = nil;
     
     
-    EVGReddit *reddit = [[EVGRedditsResultInfo sharedInfo].reddits objectAtIndex:indexPath.row];
+    EVGReddit *reddit;
+    if (loadingTop) {
+        NSLog(@"Reading from -1");
+        reddit = [[EVGRedditsResultInfo sharedInfo].reddits objectAtIndex:indexPath.row-1];
+    }else {
+        reddit = [[EVGRedditsResultInfo sharedInfo].reddits objectAtIndex:indexPath.row];
+    }
 	
     
 	titleLabel.text = reddit.title;
@@ -122,7 +129,7 @@
         }
         
         thumbImage.frame = CGRectMake(thumbImage.frame.origin.x, thumbImage.frame.origin.y, 70, 70);
-        thumbImage.contentMode = UIViewContentModeBottomLeft; // This determines position of image
+        thumbImage.contentMode = UIViewContentModeCenter;//UIViewContentModeBottomLeft; // This determines position of image
         thumbImage.clipsToBounds = YES;
     } else {
         // The reddit has no thumbnail information
@@ -226,8 +233,22 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView_ {
     CGFloat actualPosition = scrollView_.contentOffset.y;
     CGFloat contentHeight = scrollView_.contentSize.height;
-
-    if (((contentHeight-actualPosition)<350)&&(contentHeight>0)) {
+    
+    if (actualPosition < -70) {
+        if (!loadingTop) {
+            NSLog(@"Init of table (actual %f)",actualPosition);
+            loadingTop = YES;
+            [self.tableView reloadData];
+            
+            [self performSelector:@selector(loadDataTop) withObject:Nil afterDelay:0.1];
+        }
+        
+    }
+    
+    UITableView *table = (UITableView*)[scrollView_ viewWithTag:500];
+    actualPosition +=[table bounds].size.height;
+    
+    if (((actualPosition-contentHeight)>70)&&(contentHeight>0)) {
         if (!isLoading) {
             NSLog(@"End of table %f %f (first)",contentHeight, actualPosition);
             // New elem of table
@@ -237,9 +258,7 @@
             [self performSelector:@selector(loadMoreData) withObject:Nil afterDelay:0.1];
         }
     }
-    if (actualPosition < -70) {
-//        NSLog(@"Init of table (actual %f)",actualPosition);
-    }
+    
 }
 
 - (void) loadMoreData {
@@ -248,9 +267,17 @@
     [self.tableView reloadData];
 }
 
+-(void) loadDataTop {
+    if (![EVGRedditsResultInfo loadOnTop]) {
+        NSLog(@"Algo");
+        
+    }
+    loadingTop = NO;
+    [self.tableView reloadData];
+}
 
 /*- (void) animateLoading {
-    
+ 
     UIView *view;
     CGFloat duration = 1.0;
     CGFloat rotations = 1.0;

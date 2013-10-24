@@ -28,10 +28,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//-(IBAction)toMainReddit:(id)sender {
-//    [EVGRedditsResultInfo newSearch:[NSURL URLWithString:@"http://www.reddit.com/new/.json"]];
-//}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"topRedditSegue"]) {
         [EVGRedditsResultInfo sharedInfo].navTitle = @"Top";

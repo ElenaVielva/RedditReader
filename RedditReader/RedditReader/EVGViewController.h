@@ -10,6 +10,4 @@
 
 @interface EVGViewController : UIViewController
 
-//-(IBAction)toMainReddit:(id)sender;
-
 @end

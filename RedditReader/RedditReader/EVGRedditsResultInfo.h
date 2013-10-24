@@ -26,9 +26,12 @@ typedef enum {
 @property (nonatomic) NSString *afterMark;
 @property (nonatomic) NSString *beforeMark;
 @property (nonatomic) BOOL loading;
+@property (nonatomic) BOOL loadingTop;
+
 
 +(EVGRedditsResultInfo*) sharedInfo;
 +(void) newSearch:(NSURL*) searchUrl;
 +(void) loadMore;
++(BOOL) loadOnTop;
 
 @end
