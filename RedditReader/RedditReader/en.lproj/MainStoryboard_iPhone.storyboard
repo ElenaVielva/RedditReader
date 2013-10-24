@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jjb-rq-wOw">
-                                <rect key="frame" x="92" y="53" width="136" height="30"/>
+                                <rect key="frame" x="92" y="237" width="136" height="30"/>
                                 <state key="normal" title="New">
                                     <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -24,7 +24,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Dp-2h-DQL">
-                                <rect key="frame" x="92" y="87" width="136" height="30"/>
+                                <rect key="frame" x="92" y="301" width="136" height="30"/>
                                 <state key="normal" title="Controversial">
                                     <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,41 +33,8 @@
                                     <segue destination="Rll-b1-56u" kind="push" identifier="controversialRedditSegue" id="I87-uB-8mX"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="4os-cM-wKc">
-                                <rect key="frame" x="50" y="160" width="221" height="30"/>
-                                <color key="textColor" red="0.2274509804" green="0.21960784310000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subreddit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B5z-SF-iKt">
-                                <rect key="frame" x="112" y="135" width="97" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.2274509804" green="0.21960784310000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kDt-DY-ZIz">
-                                <rect key="frame" x="92" y="194" width="136" height="30"/>
-                                <state key="normal" title="Top">
-                                    <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nfO-vS-agV">
-                                <rect key="frame" x="92" y="231" width="136" height="30"/>
-                                <state key="normal" title="New">
-                                    <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lle-Tb-JLS">
-                                <rect key="frame" x="92" y="265" width="136" height="30"/>
-                                <state key="normal" title="Controversial">
-                                    <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AhQ-Ur-g7w">
-                                <rect key="frame" x="92" y="20" width="136" height="30"/>
+                                <rect key="frame" x="92" y="174" width="136" height="30"/>
                                 <state key="normal" title="Top">
                                     <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
