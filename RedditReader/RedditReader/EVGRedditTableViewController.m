@@ -61,6 +61,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
+    
+    // If it is loading newer or older results, there is one extra row containing the loading icon
     int numberOfReddits = [[EVGRedditsResultInfo sharedInfo].reddits count];
     if (isLoading || loadingTop) {
         return numberOfReddits+1; // the last one is the loading animation
@@ -79,6 +81,7 @@
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:103];
     UIImageView *thumbImage = (UIImageView *) [cell viewWithTag:100];
     
+    // If it is loading new reddits, a special row is shown with a loading icon
     if ( (isLoading && (indexPath.row==[[EVGRedditsResultInfo sharedInfo].reddits count]) ) ||
         (loadingTop && indexPath.row == 0) ) {
         loadingIcon.image = loadingImage;
@@ -96,7 +99,8 @@
     
     EVGReddit *reddit;
     if (loadingTop) {
-        NSLog(@"Reading from -1");
+        // If it is loading newer reddits the special loading row is placed in the first index, so
+        // the rest items are one row displaced.
         reddit = [[EVGRedditsResultInfo sharedInfo].reddits objectAtIndex:indexPath.row-1];
     }else {
         reddit = [[EVGRedditsResultInfo sharedInfo].reddits objectAtIndex:indexPath.row];
@@ -164,11 +168,6 @@
     [self spinImage:imageView WithOptions: UIViewAnimationOptionCurveEaseIn];
 }
 
-/*- (void) stopSpin {
-    // set the flag to stop spinning after one last 90 degree increment
-    isLoading = NO;
-}*/
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -234,9 +233,9 @@
     CGFloat actualPosition = scrollView_.contentOffset.y;
     CGFloat contentHeight = scrollView_.contentSize.height;
     
+    // The user scrolled up the table to get newer results
     if (actualPosition < -70) {
         if (!loadingTop) {
-            NSLog(@"Init of table (actual %f)",actualPosition);
             loadingTop = YES;
             [self.tableView reloadData];
             
@@ -245,9 +244,12 @@
         
     }
     
+    // Fix the actual position to be relative to the botton of the view instead of the top
+    // in order to later check if it's scrolling for older reddits
     UITableView *table = (UITableView*)[scrollView_ viewWithTag:500];
     actualPosition +=[table bounds].size.height;
     
+    // The user scrolled up the table to get older results
     if (((actualPosition-contentHeight)>70)&&(contentHeight>0)) {
         if (!isLoading) {
             NSLog(@"End of table %f %f (first)",contentHeight, actualPosition);
@@ -261,12 +263,18 @@
     
 }
 
+/*
+ * Add data at the end of the table (older reddits)
+ */
 - (void) loadMoreData {
     [EVGRedditsResultInfo loadMore];
     isLoading = NO;
     [self.tableView reloadData];
 }
 
+/*
+ * Add data at the beginning of the table (newer reddits)
+ */
 -(void) loadDataTop {
     if (![EVGRedditsResultInfo loadOnTop]) {
         NSLog(@"Algo");
@@ -276,22 +284,5 @@
     [self.tableView reloadData];
 }
 
-/*- (void) animateLoading {
- 
-    UIView *view;
-    CGFloat duration = 1.0;
-    CGFloat rotations = 1.0;
-    float repeat = 3.0;
-    
-    
-    CABasicAnimation* rotationAnimation;
-    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 * rotations * duration ];
-    rotationAnimation.duration = duration;
-    rotationAnimation.cumulative = YES;
-    rotationAnimation.repeatCount = repeat;
-    
-    [view.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
-}*/
 
 @end

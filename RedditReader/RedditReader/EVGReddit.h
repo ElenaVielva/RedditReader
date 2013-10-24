@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+/**
+ ** Class responsible for storing the information of the reddits: title, author, date, url, thumbnail and id
+ ** The id is necessary to later on search for newer or older reddits
+ **/
 @interface EVGReddit : NSObject  {
 
 }

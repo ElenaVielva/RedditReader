@@ -21,6 +21,9 @@ static EVGRedditsResultInfo *shared;
 @synthesize loading;
 @synthesize loadingTop;
 
+/*
+ * Singleton pattern. Just one result info object
+ */
 +(EVGRedditsResultInfo*) sharedInfo {
     if (shared) {
         return shared;
@@ -29,6 +32,9 @@ static EVGRedditsResultInfo *shared;
     return shared;
 }
 
+/*
+ * Update the reddits information with the new search (first search or load older/newer reddits)
+ */
 + (BOOL)updateRedditsWithSearch:(NSURL *)searchUrl {
     NSArray *reddits = [self arrayFromJSONParsing:searchUrl];
     if (reddits == nil) {
@@ -59,6 +65,9 @@ static EVGRedditsResultInfo *shared;
     
 }
 
+/*
+ * From a url query to the reddit api, parse the json response and return an array with the reddits (evgreddit)
+ */
 +(NSArray*) arrayFromJSONParsing: (NSURL *)searchUrl {
     
     NSData *data = [NSData dataWithContentsOfURL: searchUrl];
@@ -118,6 +127,9 @@ static EVGRedditsResultInfo *shared;
     return reddits;
 }
 
+/*
+ * First query to the api
+ */
 +(void) newSearch:(NSURL *) searchUrl {
     
     if (!shared) {
@@ -132,6 +144,9 @@ static EVGRedditsResultInfo *shared;
     
 }
 
+/*
+ * Query the api to get more reddits
+ */
 +(void) loadMore {
     shared.loading = YES;
     NSString *newSS = [NSString stringWithFormat:@"%@?after=%@",shared.search, shared.afterMark];
@@ -141,6 +156,9 @@ static EVGRedditsResultInfo *shared;
     shared.loading = NO;
 }
 
+/*
+ * Query the api to get newer reddits
+ */
 +(BOOL) loadOnTop {
     shared.loadingTop = YES;
     
