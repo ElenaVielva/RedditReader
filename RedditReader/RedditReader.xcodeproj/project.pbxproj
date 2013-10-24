@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F3364DAF18144E24004B2C07 /* EVGRedditContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3364DAE18144E24004B2C07 /* EVGRedditContentViewController.m */; };
+		F3ABA9D518191BA1003B0746 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F3ABA9D418191BA1003B0746 /* loading.png */; };
 		F3AD444A1812E81300C45450 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AD44491812E81300C45450 /* UIKit.framework */; };
 		F3AD444C1812E81300C45450 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AD444B1812E81300C45450 /* Foundation.framework */; };
 		F3AD444E1812E81300C45450 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AD444D1812E81300C45450 /* CoreGraphics.framework */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		F3364DAD18144E24004B2C07 /* EVGRedditContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVGRedditContentViewController.h; sourceTree = "<group>"; };
 		F3364DAE18144E24004B2C07 /* EVGRedditContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVGRedditContentViewController.m; sourceTree = "<group>"; };
+		F3ABA9D418191BA1003B0746 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading.png; path = RedditReader/loading.png; sourceTree = "<group>"; };
 		F3AD44461812E81300C45450 /* RedditReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AD44491812E81300C45450 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F3AD444B1812E81300C45450 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -189,6 +191,7 @@
 		F3C1AEA7181401A400DEF4B7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F3ABA9D418191BA1003B0746 /* loading.png */,
 				F3C1AEA8181401AE00DEF4B7 /* default-reddit.png */,
 			);
 			name = Sources;
@@ -270,6 +273,7 @@
 				F3AD445C1812E81300C45450 /* Default.png in Resources */,
 				F3AD445E1812E81300C45450 /* Default@2x.png in Resources */,
 				F3AD44601812E81300C45450 /* Default-568h@2x.png in Resources */,
+				F3ABA9D518191BA1003B0746 /* loading.png in Resources */,
 				F3AD44631812E81300C45450 /* MainStoryboard_iPhone.storyboard in Resources */,
 				F3AD44661812E81300C45450 /* MainStoryboard_iPad.storyboard in Resources */,
 				F3C1AEA9181401AE00DEF4B7 /* default-reddit.png in Resources */,

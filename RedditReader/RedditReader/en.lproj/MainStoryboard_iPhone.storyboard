@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="F4U-AZ-Yih">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="F4U-AZ-Yih">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1280" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--View Controller - Reddit Reader-->
@@ -10,114 +11,66 @@
                 <viewController title="Reddit Reader" id="2" customClass="EVGViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-rq-wOw">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="gT4-DQ-Y0y"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jjb-rq-wOw">
+                                <rect key="frame" x="92" y="53" width="136" height="30"/>
                                 <state key="normal" title="New">
                                     <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="Rll-b1-56u" kind="push" identifier="newRedditSegue" id="LTh-Fk-wd7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dp-2h-DQL">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="AeJ-cv-YH1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Dp-2h-DQL">
+                                <rect key="frame" x="92" y="87" width="136" height="30"/>
                                 <state key="normal" title="Controversial">
                                     <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="Rll-b1-56u" kind="push" identifier="controversialRedditSegue" id="I87-uB-8mX"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4os-cM-wKc">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="221" id="70Q-hW-hxO"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="4os-cM-wKc">
+                                <rect key="frame" x="50" y="160" width="221" height="30"/>
                                 <color key="textColor" red="0.2274509804" green="0.21960784310000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subreddit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5z-SF-iKt">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="hIi-bQ-OwK"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subreddit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B5z-SF-iKt">
+                                <rect key="frame" x="112" y="135" width="97" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.2274509804" green="0.21960784310000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reddit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6Z-x7-Cwm">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="136" id="hXe-Fd-FLx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.2274509804" green="0.21960784310000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDt-DY-ZIz">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="U3x-Ps-yQB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kDt-DY-ZIz">
+                                <rect key="frame" x="92" y="194" width="136" height="30"/>
                                 <state key="normal" title="Top">
                                     <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfO-vS-agV">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bew-Rq-6ZA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nfO-vS-agV">
+                                <rect key="frame" x="92" y="231" width="136" height="30"/>
                                 <state key="normal" title="New">
                                     <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lle-Tb-JLS">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="2gx-56-s8v"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lle-Tb-JLS">
+                                <rect key="frame" x="92" y="265" width="136" height="30"/>
                                 <state key="normal" title="Controversial">
                                     <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhQ-Ur-g7w">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5Ki-YZ-id5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AhQ-Ur-g7w">
+                                <rect key="frame" x="92" y="20" width="136" height="30"/>
                                 <state key="normal" title="Top">
                                     <color key="titleColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="Rll-b1-56u" kind="push" identifier="topRedditSegue" id="6Ya-pO-oDQ"/>
@@ -125,32 +78,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="jjb-rq-wOw" firstAttribute="top" secondItem="AhQ-Ur-g7w" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0Gn-oo-OsG"/>
-                            <constraint firstItem="4os-cM-wKc" firstAttribute="top" secondItem="B5z-SF-iKt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4RH-R2-MO4"/>
-                            <constraint firstItem="4Dp-2h-DQL" firstAttribute="trailing" secondItem="kDt-DY-ZIz" secondAttribute="trailing" type="default" id="6gz-2T-FKH"/>
-                            <constraint firstItem="nfO-vS-agV" firstAttribute="trailing" secondItem="kDt-DY-ZIz" secondAttribute="trailing" type="default" id="6ol-SY-pWz"/>
-                            <constraint firstItem="AhQ-Ur-g7w" firstAttribute="leading" secondItem="jjb-rq-wOw" secondAttribute="leading" type="default" id="Bk5-NG-IDh"/>
-                            <constraint firstItem="nfO-vS-agV" firstAttribute="top" secondItem="kDt-DY-ZIz" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Cf3-Z0-eBu"/>
-                            <constraint firstItem="B5z-SF-iKt" firstAttribute="top" secondItem="3" secondAttribute="top" constant="184" id="HCC-v0-DOE"/>
-                            <constraint firstItem="AhQ-Ur-g7w" firstAttribute="trailing" secondItem="S6Z-x7-Cwm" secondAttribute="trailing" type="default" id="Ir2-hV-9xA"/>
-                            <constraint firstItem="kDt-DY-ZIz" firstAttribute="top" secondItem="4os-cM-wKc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Kom-nC-aK0"/>
-                            <constraint firstItem="4Dp-2h-DQL" firstAttribute="leading" secondItem="kDt-DY-ZIz" secondAttribute="leading" type="default" id="Mlf-L6-Sr2"/>
-                            <constraint firstItem="kDt-DY-ZIz" firstAttribute="centerX" secondItem="4os-cM-wKc" secondAttribute="centerX" type="default" id="PxZ-3J-8uk"/>
-                            <constraint firstItem="4Dp-2h-DQL" firstAttribute="top" secondItem="jjb-rq-wOw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="SyE-oK-uv5"/>
-                            <constraint firstItem="lle-Tb-JLS" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="WDS-S7-C8J"/>
-                            <constraint firstItem="lle-Tb-JLS" firstAttribute="leading" secondItem="nfO-vS-agV" secondAttribute="leading" type="default" id="X6c-BQ-cNf"/>
-                            <constraint firstItem="lle-Tb-JLS" firstAttribute="top" secondItem="nfO-vS-agV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dig-Wm-E1V"/>
-                            <constraint firstItem="AhQ-Ur-g7w" firstAttribute="leading" secondItem="S6Z-x7-Cwm" secondAttribute="leading" type="default" id="dmp-qj-WKr"/>
-                            <constraint firstItem="nfO-vS-agV" firstAttribute="leading" secondItem="kDt-DY-ZIz" secondAttribute="leading" type="default" id="ilM-T4-Y66"/>
-                            <constraint firstItem="S6Z-x7-Cwm" firstAttribute="top" secondItem="3" secondAttribute="top" constant="29" id="nMz-Cc-IcX"/>
-                            <constraint firstItem="jjb-rq-wOw" firstAttribute="trailing" secondItem="4Dp-2h-DQL" secondAttribute="trailing" type="default" id="qGP-DV-okE"/>
-                            <constraint firstItem="B5z-SF-iKt" firstAttribute="centerX" secondItem="4os-cM-wKc" secondAttribute="centerX" type="default" id="ru7-P1-iu8"/>
-                            <constraint firstItem="AhQ-Ur-g7w" firstAttribute="trailing" secondItem="jjb-rq-wOw" secondAttribute="trailing" type="default" id="rvd-mm-cpg"/>
-                            <constraint firstItem="AhQ-Ur-g7w" firstAttribute="top" secondItem="S6Z-x7-Cwm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="uOG-fk-ivg"/>
-                            <constraint firstItem="nfO-vS-agV" firstAttribute="trailing" secondItem="lle-Tb-JLS" secondAttribute="trailing" type="default" id="uvG-kI-l2t"/>
-                            <constraint firstItem="jjb-rq-wOw" firstAttribute="leading" secondItem="4Dp-2h-DQL" secondAttribute="leading" type="default" id="wgo-35-11w"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Start" id="ngw-zn-6qQ"/>
                 </viewController>
@@ -162,63 +89,45 @@
         <scene sceneID="YSU-sg-3M7">
             <objects>
                 <tableViewController id="Rll-b1-56u" customClass="EVGRedditTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="35C-wv-PKl">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="35C-wv-PKl">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="50" reuseIdentifier="RedditCell" rowHeight="95" id="82F-Z1-XTW">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="50" reuseIdentifier="RedditCell" rowHeight="95" id="82F-Z1-XTW">
                                 <rect key="frame" x="0.0" y="22" width="320" height="95"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="94"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="82F-Z1-XTW" id="j40-YS-gsw">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="202" translatesAutoresizingMaskIntoConstraints="NO" id="sVX-36-v8Q">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="74" id="eA3-jB-SUM"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sVX-36-v8Q">
+                                            <rect key="frame" x="98" y="0.0" width="202" height="74"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="0.2274509804" green="0.21960784310000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ck-w9-bWD">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="114" id="dHD-7I-Dqv"/>
-                                                <constraint firstAttribute="height" constant="21" id="mUz-tK-YdQ"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9ck-w9-bWD">
+                                            <rect key="frame" x="98" y="73" width="114" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.41960784309999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" image="default-reddit.png" translatesAutoresizingMaskIntoConstraints="NO" id="mD6-NM-kvD">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="70" id="keL-BJ-P5g"/>
-                                            </constraints>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" image="default-reddit.png" id="mD6-NM-kvD">
+                                            <rect key="frame" x="20" y="13" width="70" height="70"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y1-Gf-UJG">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="72" id="vBB-MN-NSG"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Y1-Gf-UJG">
+                                            <rect key="frame" x="228" y="73" width="72" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="1" green="0.3803921569" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" tag="104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="MlG-jJ-N3U">
+                                            <rect key="frame" x="115" y="12" width="70" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="mD6-NM-kvD" firstAttribute="top" secondItem="82F-Z1-XTW" secondAttribute="top" constant="13" id="4DM-Qh-OLZ"/>
-                                    <constraint firstItem="2Y1-Gf-UJG" firstAttribute="bottom" secondItem="9ck-w9-bWD" secondAttribute="bottom" type="default" id="4dV-uT-hda"/>
-                                    <constraint firstAttribute="bottom" secondItem="9ck-w9-bWD" secondAttribute="bottom" constant="1" id="C5x-v8-Sjr"/>
-                                    <constraint firstItem="2Y1-Gf-UJG" firstAttribute="top" secondItem="9ck-w9-bWD" secondAttribute="top" type="default" id="FEr-YM-bhw"/>
-                                    <constraint firstItem="9ck-w9-bWD" firstAttribute="leading" secondItem="mD6-NM-kvD" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ccU-YG-TDl"/>
-                                    <constraint firstItem="sVX-36-v8Q" firstAttribute="leading" secondItem="mD6-NM-kvD" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="gtG-I4-9Gg"/>
-                                    <constraint firstItem="sVX-36-v8Q" firstAttribute="top" secondItem="82F-Z1-XTW" secondAttribute="top" type="default" id="iwc-AD-gKp"/>
-                                    <constraint firstAttribute="trailing" secondItem="sVX-36-v8Q" secondAttribute="trailing" constant="20" type="default" id="odK-NC-crU"/>
-                                    <constraint firstItem="mD6-NM-kvD" firstAttribute="leading" secondItem="82F-Z1-XTW" secondAttribute="leading" constant="20" type="default" id="sNP-2L-CJI"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Y1-Gf-UJG" secondAttribute="trailing" constant="20" type="default" id="vrO-Oo-mOZ"/>
-                                </constraints>
+                                </tableViewCellContentView>
                                 <connections>
                                     <segue destination="CAo-wG-Nn4" kind="push" identifier="selectRedditSegue" id="9Ga-7F-gfd"/>
                                 </connections>
@@ -243,17 +152,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView tag="200" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFc-CO-03f">
+                            <webView tag="200" contentMode="scaleToFill" id="FFc-CO-03f">
+                                <rect key="frame" x="0.0" y="-32" width="320" height="568"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="FFc-CO-03f" firstAttribute="bottom" secondItem="ITI-5h-zZT" secondAttribute="bottom" type="default" id="52f-TD-G3P"/>
-                            <constraint firstItem="FFc-CO-03f" firstAttribute="leading" secondItem="ITI-5h-zZT" secondAttribute="leading" type="default" id="JjE-fN-Bz6"/>
-                            <constraint firstItem="FFc-CO-03f" firstAttribute="top" secondItem="ITI-5h-zZT" secondAttribute="top" type="default" id="UjG-hj-PM3"/>
-                            <constraint firstItem="FFc-CO-03f" firstAttribute="trailing" secondItem="ITI-5h-zZT" secondAttribute="trailing" type="default" id="mcN-Sq-PZm"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="udO-9K-fgT"/>
                     <connections>
@@ -286,29 +190,12 @@
     <resources>
         <image name="default-reddit.png" width="70" height="70"/>
     </resources>
-    <classes>
-        <class className="EVGRedditContentViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVGRedditContentViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="content" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="EVGRedditTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVGRedditTableViewController.h"/>
-        </class>
-        <class className="EVGViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVGViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="I87-uB-8mX"/>
+        <segue reference="LTh-Fk-wd7"/>
     </inferredMetricsTieBreakers>
 </document>

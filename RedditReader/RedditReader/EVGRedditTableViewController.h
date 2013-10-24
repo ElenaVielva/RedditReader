@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface EVGRedditTableViewController : UITableViewController <UIScrollViewDelegate> {
+    
     NSMutableDictionary *cachedThumbnails;
+    BOOL isLoading;
+    UIImage *loadingImage;
 }
 
 @end
