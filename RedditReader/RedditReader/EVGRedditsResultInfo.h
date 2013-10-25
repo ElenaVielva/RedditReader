@@ -18,13 +18,17 @@ typedef enum {
     
 }
 
+@property (nonatomic) NSMutableDictionary *cacheReddits;
+@property (nonatomic) NSMutableDictionary *cacheBefMark;
+@property (nonatomic) NSMutableDictionary *cacheAftMark;
+
 @property (nonatomic, strong) NSMutableArray *reddits;
 @property (nonatomic) NSString *navTitle;
 
 // Search properties
 @property (nonatomic) NSURL *search;
-@property (nonatomic) NSString *afterMark;
-@property (nonatomic) NSString *beforeMark;
+@property (nonatomic) NSString *aftMark;
+@property (nonatomic) NSString *befMark;
 @property (nonatomic) BOOL loading;
 @property (nonatomic) BOOL loadingTop;
 

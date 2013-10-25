@@ -13,13 +13,11 @@ static EVGRedditsResultInfo *shared;
 
 @implementation EVGRedditsResultInfo
 
-@synthesize reddits;
+@synthesize reddits, search;
 @synthesize navTitle;
-@synthesize afterMark;
-@synthesize beforeMark;
-@synthesize search;
-@synthesize loading;
-@synthesize loadingTop;
+@synthesize aftMark, befMark;
+@synthesize loading, loadingTop;
+@synthesize cacheReddits, cacheBefMark, cacheAftMark;
 
 /*
  * Singleton pattern. Just one result info object
@@ -30,6 +28,16 @@ static EVGRedditsResultInfo *shared;
     }
     shared = [[EVGRedditsResultInfo alloc] init];
     return shared;
+}
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        cacheReddits = [NSMutableDictionary dictionary];
+        cacheBefMark = [NSMutableDictionary dictionary];
+        cacheAftMark = [NSMutableDictionary dictionary];
+    }
+    return self;
 }
 
 /*
@@ -45,8 +53,12 @@ static EVGRedditsResultInfo *shared;
     if (shared.loading) {
         [shared.reddits addObjectsFromArray:reddits];
         
-        shared.beforeMark = ((EVGReddit*)[shared.reddits firstObject]).name;
-        shared.afterMark = ((EVGReddit *)[shared.reddits lastObject]).name;
+        shared.befMark = ((EVGReddit*)[shared.reddits firstObject]).name;
+        shared.aftMark = ((EVGReddit *)[shared.reddits lastObject]).name;
+        
+        [shared.cacheReddits setObject:shared.reddits forKey:shared.search];
+        [shared.cacheBefMark setObject:shared.befMark forKey:shared.search];
+        [shared.cacheAftMark setObject:shared.aftMark forKey:shared.search];
         
         return YES;
     }
@@ -56,7 +68,10 @@ static EVGRedditsResultInfo *shared;
         [newFinal addObjectsFromArray:reddits];
         [newFinal addObjectsFromArray:shared.reddits];
         shared.reddits = newFinal;
-        shared.beforeMark = ((EVGReddit*)[shared.reddits firstObject]).name;
+        shared.befMark = ((EVGReddit*)[shared.reddits firstObject]).name;
+        
+        [shared.cacheReddits setObject:shared.reddits forKey:shared.search];
+        [shared.cacheBefMark setObject:shared.befMark forKey:shared.search];
         
         shared.loadingTop = NO;
         return YES;
@@ -135,12 +150,26 @@ static EVGRedditsResultInfo *shared;
     if (!shared) {
         shared = [EVGRedditsResultInfo sharedInfo];
     }
-    shared.reddits = [NSMutableArray array];
     shared.search = searchUrl;
     
-    shared.loading = YES;
-    [self updateRedditsWithSearch:searchUrl];
-    shared.loading = NO;
+    NSMutableArray *cachedReddits = [shared.cacheReddits objectForKey:searchUrl];
+    if (cachedReddits) {
+        shared.reddits = cachedReddits;
+        shared.aftMark = [shared.cacheAftMark objectForKey:searchUrl];
+        shared.befMark = [shared.cacheBefMark objectForKey:searchUrl];
+        
+    } else {
+        shared.reddits = [NSMutableArray array];
+        
+        shared.loading = YES;
+        [self updateRedditsWithSearch:searchUrl];
+        shared.loading = NO;
+        
+        [shared.cacheReddits setObject:shared.reddits forKey:searchUrl];
+        [shared.cacheBefMark setObject:shared.befMark forKey:searchUrl];
+        [shared.cacheAftMark setObject:shared.aftMark forKey:searchUrl];
+    }
+    
     
 }
 
@@ -148,8 +177,11 @@ static EVGRedditsResultInfo *shared;
  * Query the api to get more reddits
  */
 +(void) loadMore {
+    if (shared.loading) {
+        return;
+    }
     shared.loading = YES;
-    NSString *newSS = [NSString stringWithFormat:@"%@?after=%@",shared.search, shared.afterMark];
+    NSString *newSS = [NSString stringWithFormat:@"%@?after=%@",shared.search, shared.aftMark];
     NSURL *newSearch = [NSURL URLWithString:newSS];
 
     [self updateRedditsWithSearch:newSearch];
@@ -160,9 +192,12 @@ static EVGRedditsResultInfo *shared;
  * Query the api to get newer reddits
  */
 +(BOOL) loadOnTop {
+    if (shared.loadingTop) {
+        return NO;
+    }
     shared.loadingTop = YES;
     
-    NSString *newSS = [NSString stringWithFormat:@"%@?before=%@",shared.search, shared.beforeMark];
+    NSString *newSS = [NSString stringWithFormat:@"%@?before=%@",shared.search, shared.befMark];
     NSURL *newSearch = [NSURL URLWithString:newSS];
     
     return [self updateRedditsWithSearch:newSearch];
